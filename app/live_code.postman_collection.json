@@ -1,0 +1,299 @@
+{
+	"info": {
+		"_postman_id": "46eb0edd-44a0-476c-a725-b84cde27afb2",
+		"name": "live_code",
+		"description": "Kumpulan request live code flask",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"client_key\": \"PENERBIT2_KEY\",\n\t\"client_secret\": \"PENERBIT2_SECRET\"\n}"
+				},
+				"url": {
+					"raw": "{{host}}/login",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Penerbit Get Buku",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{penerbit2_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "{{host}}/penerbit/buku?isbn=9786025199493",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"penerbit",
+						"buku"
+					],
+					"query": [
+						{
+							"key": "isbn",
+							"value": "9786025199493"
+						}
+					]
+				},
+				"description": "Penerbit miminta data semua buku"
+			},
+			"response": []
+		},
+		{
+			"name": "Penerbit Add Buku",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{penerbit1_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"isbn\": \"9786023173662\",\n\t\"title\": \"Terjemah Lengkap Minhajul Muslim Panduan Hidup Terlengkap Untuk Muslim Dari Al-Qur`an dan Hadis\",\n\t\"penerbit\": \"Semesta Hikmah\",\n\t\"harga\": 199000,\n\t\"pengarang\": \"Syeikh Abu Bakar Jabir Al-Jaza`iri\"\n}"
+				},
+				"url": {
+					"raw": "{{host}}/penerbit/buku",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"penerbit",
+						"buku"
+					]
+				},
+				"description": "Penerbit miminta data semua buku"
+			},
+			"response": []
+		},
+		{
+			"name": "Admin Get Buku All",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{admin_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "{{host}}/admin/buku",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"admin",
+						"buku"
+					]
+				},
+				"description": "Penerbit miminta data semua buku"
+			},
+			"response": []
+		},
+		{
+			"name": "Admin Get Buku By ID",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{admin_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "{{host}}/admin/buku/2",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"admin",
+						"buku",
+						"2"
+					]
+				},
+				"description": "Penerbit miminta data semua buku"
+			},
+			"response": []
+		},
+		{
+			"name": "Admin Add Buku",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{admin_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"isbn\": \"9786023173662\",\n\t\"title\": \"Terjemah Lengkap Minhajul Muslim Panduan Hidup Terlengkap Untuk Muslim Dari Al-Qur`an dan Hadis\",\n\t\"penerbit\": \"Ziyad Books\",\n\t\"harga\": 199000,\n\t\"pengarang\": \"Syeikh Abu Bakar Jabir Al-Jaza`iri\",\n\t\"client_id\": 2\n}"
+				},
+				"url": {
+					"raw": "{{host}}/admin/buku",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"admin",
+						"buku"
+					]
+				},
+				"description": "Penerbit miminta data semua buku"
+			},
+			"response": []
+		},
+		{
+			"name": "Admin Update Buku",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{admin_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": 2,\n    \"isbn\": \"9786024526986\",\n    \"title\": \"Sebuah Seni untuk Bersikap Bodo Amat\",\n    \"pengarang\": null,\n    \"penerbit\": \"Gramedia Widiasarana Indonesia\",\n    \"harga\": 67000,\n    \"status\": \"not_show\",\n    \"url_picture\": null,\n    \"client_id\": 2\n}"
+				},
+				"url": {
+					"raw": "{{host}}/admin/buku/2",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"admin",
+						"buku",
+						"2"
+					]
+				},
+				"description": "Penerbit miminta data semua buku"
+			},
+			"response": []
+		},
+		{
+			"name": "Admin Delete Buku",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{admin_token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "{{host}}/admin/buku/5",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"admin",
+						"buku",
+						"5"
+					]
+				},
+				"description": "Penerbit miminta data semua buku"
+			},
+			"response": []
+		},
+		{
+			"name": "Public Get Buku",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "{{host}}/public/buku",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"public",
+						"buku"
+					]
+				},
+				"description": "Penerbit miminta data semua buku"
+			},
+			"response": []
+		}
+	]
+}
